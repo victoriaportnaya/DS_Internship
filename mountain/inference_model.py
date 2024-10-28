@@ -11,9 +11,9 @@ import torch
 from transformers import BertTokenizerFast, BertForTokenClassification
 import numpy as np
 
-# Load the trained model and tokenizer
-model = BertForTokenClassification.from_pretrained('ner_mountain_model')
-tokenizer = BertTokenizerFast.from_pretrained('ner_mountain_model')
+# Load the model and tokenizer from Hugging Face
+model = BertForTokenClassification.from_pretrained('victoriapvo/ner-mountain-model')
+tokenizer = BertTokenizerFast.from_pretrained('victoriapvo/ner-mountain-model')
 
 # Define label list
 label_list = ['O', 'B-MTN', 'I-MTN']

@@ -1,4 +1,4 @@
-# Mountain Named Entity Recognition and Satellite Image Feature Matching Projects
+# Mountain Named Entity Recognition and Satellite Image Feature Matching Projects👩‍💻
 
 This repository contains two projects:
 
@@ -25,7 +25,7 @@ This repository contains two projects:
 
 ---
 
-## Mountain Named Entity Recognition (NER) Project
+## Mountain Named Entity Recognition (NER) Project 🏔️
 
 ### Description
 
@@ -87,7 +87,7 @@ This project involves:
    - Enter a sentence when prompted, and the script will identify any mountain names.
 
 
-## Satellite Image Feature Matching with SuperPoint and SuperGlue
+## Satellite Image Feature Matching with SuperPoint and SuperGlue 🛰️
 
 ### Description
 

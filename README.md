@@ -1,4 +1,4 @@
-# Mountain Named Entity Recognition and Satellite Image Feature Matching Projects👩‍💻
+# Mountain Named Entity Recognition and Satellite Image Feature Matching Projects 👩‍💻
 
 This repository contains two projects:
 
@@ -7,7 +7,7 @@ This repository contains two projects:
 2. **Satellite Image Feature Matching with SuperPoint and SuperGlue**: This project performs feature matching between pairs of satellite images using the SuperPoint and SuperGlue models. It detects and matches keypoints between images, useful for monitoring environmental changes like deforestation.
 
 
-## Repository Structure
+## Repository Structure 🏝️
 
 ```
 ├── mountain/
@@ -31,60 +31,80 @@ This repository contains two projects:
 
 This project involves:
 
-- Scraping Wikipedia articles for sentences containing specific mountain names.
-- Preprocessing the data and labeling the mountain names for NER.
-- Training a BERT-based model to recognize mountain names in sentences.
-- Performing inference on new sentences to identify mountain names.
+- **Data Collection**: Scraping Wikipedia articles for sentences containing specific mountain names.
+- **Data Preprocessing**: Tokenizing sentences and labeling mountain names for NER.
+- **Model Training**: Training a BERT-based model to recognize mountain names in sentences.
+- **Model Hosting**: The trained model is hosted on Hugging Face for easy access.
+- **Inference**: Performing inference on new sentences to identify mountain names.
+
+### Model Link
+
+The trained NER model is available on Hugging Face:
+
+**[NER Mountain Model on Hugging Face](https://huggingface.co/victoriapvo/ner-mountain-model)**
 
 ### Files
 
 - **Mountain.ipynb**: Jupyter notebook that includes all steps—data collection, preprocessing, model training, inference, and demonstration.
 - **train_model.py**: Python script for training the Mountain NER model.
-- **inference_model.py**: Python script for performing inference using the trained model.
+- **inference_model.py**: Python script for performing inference using the trained model hosted on Hugging Face.
 
 ### Usage
 
-1. **Navigate to the Mountain Project Directory**
+#### 1. Navigate to the Mountain Project Directory
 
-   ```bash
-   cd mountain
-   ```
+```bash
+cd mountain
+```
 
-2. **Install Required Libraries**
+#### 2. Install Required Libraries
 
-   Install the necessary packages listed in `requirements.txt`:
+Install the necessary packages listed in `requirements.txt`:
 
-   ```bash
-   pip install -r ../requirements.txt
-   ```
+```bash
+pip install -r ../requirements.txt
+```
 
-3. **Run the Jupyter Notebook**
+#### 3. Run the Jupyter Notebook
 
-   Launch Jupyter Notebook and open `Mountain.ipynb`:
+Launch Jupyter Notebook and open `Mountain.ipynb`:
 
-   ```bash
-   jupyter notebook Mountain.ipynb
-   ```
+```bash
+jupyter notebook Mountain.ipynb
+```
 
-   - Follow the notebook cells sequentially.
+- Follow the notebook cells sequentially to execute the entire workflow.
 
-4. **Training Using the Python Script**
+#### 4. Training Using the Python Script
 
-   If you prefer running the training script directly:
+If you prefer running the training script directly:
 
-   ```bash
-   python train_model.py
-   ```
+```bash
+python train_model.py
+```
 
-5. **Inference**
+- The script will train the model and push it to Hugging Face.
 
-   After training, perform inference using:
+#### 5. Inference
 
-   ```bash
-   python inference_model.py
-   ```
+After training, perform inference using:
 
-   - Enter a sentence when prompted, and the script will identify any mountain names.
+```bash
+python inference_model.py
+```
+
+- Enter a sentence when prompted, and the script will identify any mountain names using the model hosted on Hugging Face.
+
+#### 6. Using the Model in Other Projects
+
+You can load the model directly from Hugging Face in your own projects:
+
+```python
+from transformers import BertTokenizerFast, BertForTokenClassification
+
+tokenizer = BertTokenizerFast.from_pretrained('victoriapvo/ner-mountain-model')
+model = BertForTokenClassification.from_pretrained('victoriapvo/ner-mountain-model')
+```
 
 
 ## Satellite Image Feature Matching with SuperPoint and SuperGlue 🛰️
@@ -93,9 +113,9 @@ This project involves:
 
 This project performs:
 
-- Feature matching between pairs of satellite images.
-- Utilizes pre-trained SuperPoint and SuperGlue models.
-- Helps in monitoring changes over time in satellite imagery.
+- **Feature Matching**: Matching keypoints between pairs of satellite images.
+- **Models Used**: Utilizes pre-trained SuperPoint and SuperGlue models.
+- **Applications**: Useful for monitoring changes over time in satellite imagery, such as deforestation.
 
 ### Files
 
@@ -106,66 +126,65 @@ This project performs:
 
 ### Usage
 
-1. **Navigate to the Keypoints-Match Project Directory**
+#### 1. Navigate to the Keypoints-Match Project Directory
 
-   ```bash
-   cd keypoints-match
-   ```
+```bash
+cd keypoints-match
+```
 
-2. **Install Required Libraries**
+#### 2. Install Required Libraries
 
-   Install the necessary packages:
+Install the necessary packages:
 
-   ```bash
-   pip install -r ../requirements.txt
-   ```
+```bash
+pip install -r ../requirements.txt
+```
 
-3. **Clone the SuperGlue Repository**
+#### 3. Clone the SuperGlue Repository
 
-   ```bash
-   git clone https://github.com/magicleap/SuperGluePretrainedNetwork.git
-   ```
+```bash
+git clone https://github.com/magicleap/SuperGluePretrainedNetwork.git
+```
 
-4. **Add SuperGlue to Python Path**
+#### 4. Add SuperGlue to Python Path
 
-   In your scripts or notebooks, add the following lines to include SuperGlue modules:
+In your scripts or notebooks, add the following lines to include SuperGlue modules:
 
-   ```python
-   import sys
-   sys.path.append('./SuperGluePretrainedNetwork')
-   ```
+```python
+import sys
+sys.path.append('./SuperGluePretrainedNetwork')
+```
 
-5. **Run the Jupyter Notebook**
+#### 5. Run the Jupyter Notebook
 
-   Launch Jupyter Notebook and open `keypoints-match.ipynb`:
+Launch Jupyter Notebook and open `keypoints-match.ipynb`:
 
-   ```bash
-   jupyter notebook keypoints-match.ipynb
-   ```
+```bash
+jupyter notebook keypoints-match.ipynb
+```
 
-   - Follow the notebook cells sequentially to execute the entire workflow.
+- Follow the notebook cells sequentially to execute the entire workflow.
 
-6. **Running the Feature Matching Script**
+#### 6. Running the Feature Matching Script
 
-   - Update the `data_dir` variable in `model_training_2.py` to point to your dataset directory.
-   - Run the script:
+- Update the `data_dir` variable in `model_training_2.py` to point to your dataset directory.
+- Run the script:
 
-     ```bash
-     python model_training_2.py
-     ```
+  ```bash
+  python model_training_2.py
+  ```
 
-   - The matching visualization will be saved as `matches.png`. The example is `matches_example.png`.
+- The matching visualization will be saved as `matches.png`. The example is `matches_example.png`
 
-7. **Inference on New Images**
+#### 7. Inference on New Images
 
-   - Update image paths in `model_inference_2.py`.
-   - Run the script:
+- Update image paths in `model_inference_2.py`.
+- Run the script:
 
-     ```bash
-     python model_inference_2.py
-     ```
+  ```bash
+  python model_inference_2.py
+  ```
 
-   - The inference result will be saved as `matches_inference.png`.
 
 
 ## Requirements
@@ -183,4 +202,5 @@ pip install -r requirements.txt
 - **Satellite Images**: For the keypoints matching project, you need satellite images in the expected format (e.g., Sentinel-2 bands in `.jp2` format).
 - **Model Weights**: The SuperPoint and SuperGlue models are pre-trained and included in the cloned repository. No additional training is required.
 - **Results Visualization**: Output images showing the results are saved in the scripts' respective directories.
+- **Model Hosting**: The NER Mountain model is hosted on Hugging Face, making it easy to load and use in various applications.
 
